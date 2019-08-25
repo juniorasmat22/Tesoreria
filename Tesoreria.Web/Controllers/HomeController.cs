@@ -12,12 +12,14 @@ namespace Tesoreria.Web.Controllers
     {
         public IActionResult Index()
         {
+            
             return View();
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            Data.Conexion.obtenerConxion();
+            ViewData["Message"] = Data.Conexion.rpt; 
 
             return View();
         }
