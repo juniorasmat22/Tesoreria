@@ -7,6 +7,14 @@
              x:Class="Tesoreria.UIForms.Views.ProductsPage"
               BindingContext="{Binding Main,Source={StaticResource Locator}}"
              Title="Lista de Productos">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="ic_action_add_circle"
+            Command="{Binding AddProductCommand}">
+            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+        
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Products}"

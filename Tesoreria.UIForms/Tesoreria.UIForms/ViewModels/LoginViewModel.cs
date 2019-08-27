@@ -46,6 +46,9 @@ namespace Tesoreria.UIForms.ViewModels
             //        "ok",
             //        "correcto",
             //        "aceptar");
+            var mainViewModel = MainViewModel.obtenerInstancia();
+            mainViewModel.UserEmail = this.email;
+            mainViewModel.UserPassword = this.password;
             MainViewModel.obtenerInstancia().Products = new ProductsViewModel();
             Application.Current.MainPage= new MasterPage();
 

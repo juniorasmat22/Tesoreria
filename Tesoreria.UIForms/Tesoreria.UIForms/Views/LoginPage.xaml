@@ -12,6 +12,10 @@
             BindingContext="{Binding Login}">
             <StackLayout
                 Padding="10">
+                <Image
+                    HeightRequest="150"
+                    Source="pagos">
+                </Image>
                 <Label
                     Text="Email"
                     >
@@ -33,6 +37,10 @@
 
                 </Entry>
                 <Button
+                     BackgroundColor="Navy"
+                        BorderRadius="23"
+                     HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"
                     Command="{Binding LoginCommand}"
                     Text="Ingresar"
                     >

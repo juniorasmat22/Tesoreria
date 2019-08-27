@@ -54,5 +54,49 @@ namespace Tesoreria.Common.Services
             }
         }
 
+        public async Task<Response> PostAsync<T>(
+            string urlBase,
+            string controller,
+            T model
+           )
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(model);
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
+                var client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
+
+               
+                var url = $"{controller}";
+                var response = await client.PostAsync(url, content);
+                var answer = await response.Content.ReadAsStringAsync();
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Mensaje = answer,
+                    };
+                }
+                
+                var obj = JsonConvert.DeserializeObject<T>(answer);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Resultado = obj,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Mensaje = ex.Message,
+                };
+            }
+        }
     }
 }

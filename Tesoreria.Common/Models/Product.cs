@@ -8,13 +8,13 @@ namespace Tesoreria.Common.Models
     public class Product
     {
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("descripcion")]
         public string Descripcion { get; set; }
 
         [JsonProperty("precio")]
-        public string Precio { get; set; }
+        public decimal Precio { get; set; }
 
         [JsonProperty("categoria")]
         public string Categoria { get; set; }

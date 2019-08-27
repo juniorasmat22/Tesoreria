@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Tesoreria.Common.Models;
 using Tesoreria.Common.Services;
 using Xamarin.Forms;
@@ -45,7 +46,7 @@ namespace Tesoreria.UIForms.ViewModels
                 return;
             }
             var MisProductos = (List<Product>)response.Resultado;
-            this.Products = new ObservableCollection<Product>(MisProductos);
+            this.Products = new ObservableCollection<Product>(MisProductos.OrderBy(p=>p.Descripcion));
             this.Cargando = false;
         }
     }
