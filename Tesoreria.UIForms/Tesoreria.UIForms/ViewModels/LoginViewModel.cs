@@ -47,7 +47,7 @@ namespace Tesoreria.UIForms.ViewModels
             //        "correcto",
             //        "aceptar");
             MainViewModel.obtenerInstancia().Products = new ProductsViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+            Application.Current.MainPage= new MasterPage();
 
         }
 
