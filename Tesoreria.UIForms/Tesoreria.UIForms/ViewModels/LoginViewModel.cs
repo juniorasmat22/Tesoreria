@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System;
 using System.Windows.Input;
+using Tesoreria.UIForms.Views;
 using Xamarin.Forms;
 
 namespace Tesoreria.UIForms.ViewModels
@@ -41,10 +42,12 @@ namespace Tesoreria.UIForms.ViewModels
                     "aceptar");
                 return;
             }
-            await Application.Current.MainPage.DisplayAlert(
-                    "ok",
-                    "correcto",
-                    "aceptar");
+            //await Application.Current.MainPage.DisplayAlert(
+            //        "ok",
+            //        "correcto",
+            //        "aceptar");
+            MainViewModel.obtenerInstancia().Products = new ProductsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
 
         }
 

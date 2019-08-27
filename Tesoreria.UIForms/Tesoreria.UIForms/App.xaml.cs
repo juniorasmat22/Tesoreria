@@ -1,4 +1,5 @@
 ﻿using System;
+using Tesoreria.UIForms.ViewModels;
 using Tesoreria.UIForms.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,8 +11,8 @@ namespace Tesoreria.UIForms
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new LoginPage());
+            MainViewModel.obtenerInstancia().Login = new LoginViewModel();
+            this.MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

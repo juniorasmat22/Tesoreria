@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Tesoreria.Common.Models;
@@ -13,7 +14,6 @@ namespace Tesoreria.Common.Services
     // sirve para listar cualquier entidad
         public async Task<Response> GetListAsync<T>(
            string urlBase,
-           string servicePrefix,
            string controller)
         {
             try
@@ -23,9 +23,10 @@ namespace Tesoreria.Common.Services
                     BaseAddress = new Uri(urlBase)
                 };
 
-                var url = $"{servicePrefix}{controller}";
+                var url = $"{controller}";
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var response = await client.GetAsync(url);
-                var result = await response.Content.ReadAsStringAsync();//leela como string
+                var result = await response.Content.ReadAsStringAsync();//leela como string ->ReadAsStringAsync()
 
                 if (!response.IsSuccessStatusCode)
                 {

@@ -8,11 +8,22 @@ namespace Tesoreria.UIForms.ViewModels
    
     public class MainViewModel
     {
+        private static MainViewModel instancia;
         public LoginViewModel Login { get; set; }
+        public ProductsViewModel Products { get; set; }
         public MainViewModel()
         {
-           this.Login = new LoginViewModel();
+            instancia = this;
         }
+        public static MainViewModel obtenerInstancia()
+        {
+            if (instancia==null)
+            {
+                return new MainViewModel();
+            }
+            return instancia;
+        }
+
     }
         
 }
