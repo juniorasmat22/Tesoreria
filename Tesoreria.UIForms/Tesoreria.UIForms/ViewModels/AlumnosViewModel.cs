@@ -12,9 +12,10 @@ namespace Tesoreria.UIForms.ViewModels
     public class AlumnosViewModel: BaseViewModel
     {
         private ApiServices apiServices;
-        private ObservableCollection<Alumno> alumnos;
+        private List<Alumno> MisAlumnos;
+        private ObservableCollection<AlumnoItemViewModel> alumnos;
         private bool cargando;
-        public ObservableCollection<Alumno> Alumnos
+        public ObservableCollection<AlumnoItemViewModel> Alumnos
         {
             get { return this.alumnos; }
             set { this.SetValue(ref this.alumnos, value); }
@@ -46,8 +47,51 @@ namespace Tesoreria.UIForms.ViewModels
                 return;
             }
             this.Cargando = false;
-            var MisAlumnos = (List<Alumno>)response.Resultado;
-            this.Alumnos = new ObservableCollection<Alumno>(MisAlumnos.OrderBy(p => p.AluNombre));
+            this.MisAlumnos = (List<Alumno>)response.Resultado;
+            this.RefresListAlumnos();
+        }
+
+        private void RefresListAlumnos()
+        {
+            this.Alumnos = new ObservableCollection<AlumnoItemViewModel>(
+                this.MisAlumnos.Select(p => new AlumnoItemViewModel
+                {
+                    AluId = p.AluId,
+                    AluCodigo = p.AluCodigo,
+                    AluNombre = p.AluNombre,
+                    AluApellido = p.AluApellido,
+                    AluDireccion = p.AluDireccion,
+                    AluTelefono = p.AluTelefono,
+                    AluCorreo = p.AluCorreo
+                })
+            .OrderBy(p => p.AluNombre)
+            .ToList());
+        }
+        public void AddAlumnoToList(Alumno alumno)
+        {
+            this.MisAlumnos.Add(alumno);
+            this.RefresListAlumnos();
+        }
+        public void UpdateAlumnoInlist(Alumno alumno)
+        {
+            var anterioAlumno = this.MisAlumnos.Where(p => p.AluId == alumno.AluId).FirstOrDefault();
+            if (anterioAlumno != null)
+            {
+                this.MisAlumnos.Remove(anterioAlumno);
+            }
+
+            this.MisAlumnos.Add(alumno);
+            this.RefresListAlumnos();
+        }
+        public void deleteAlumnoInList(int alumnoId)
+        {
+            var anterioAlumno = this.MisAlumnos.Where(p => p.AluId == alumnoId).FirstOrDefault();
+            if (anterioAlumno != null)
+            {
+                this.MisAlumnos.Remove(anterioAlumno);
+            }
+            this.RefresListAlumnos();
+
         }
     }
 }

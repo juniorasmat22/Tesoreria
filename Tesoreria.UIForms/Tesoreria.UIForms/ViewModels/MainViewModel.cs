@@ -24,6 +24,7 @@ namespace Tesoreria.UIForms.ViewModels
         public ProductsViewModel Products { get; set; }
         public AddProductViewModel AddProduct { get; set; }
         public AddAlumnoViewModel AddAlumno { get; set; }
+        public EditAlumnoViewModel EditAlumno { get; set; }
         public ICommand AddProductCommand { get { return new RelayCommand(this.GoAddProduct); } }
         public ICommand AddAlumnoCommand { get { return new RelayCommand(this.GoAddAlumno); } }
 

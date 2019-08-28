@@ -146,7 +146,7 @@ namespace Tesoreria.UIForms.ViewModels
                 return;
             }
             var newAlumno = (Alumno)response.Resultado;
-            MainViewModel.obtenerInstancia().Alumnos.Alumnos.Add(newAlumno);
+            MainViewModel.obtenerInstancia().Alumnos.AddAlumnoToList(newAlumno);
 
             this.IsRunning = false;
             this.IsEnabled = true;

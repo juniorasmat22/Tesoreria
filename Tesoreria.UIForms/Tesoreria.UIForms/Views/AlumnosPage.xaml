@@ -25,9 +25,12 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectAlumnoCommand}"/>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
-
                                 </Grid.ColumnDefinitions>
                                 <StackLayout
                                     Grid.Column="1"
@@ -54,6 +57,10 @@
                                         Text="{Binding Descripcion}"
                                         TextColor="Black">
                                     </Label>-->
+                                    <Image
+                                    Grid.Column="2"
+                                    Source="ic_cached">
+                                    </Image>
                                 </StackLayout>
 
                             </Grid>
