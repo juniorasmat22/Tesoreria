@@ -20,9 +20,18 @@ namespace Tesoreria.UIForms.ViewModels
         public string UserEmail { get; set; }
 
         public string UserPassword { get; set; }
+        public AlumnosViewModel Alumnos { get; set; }
         public ProductsViewModel Products { get; set; }
         public AddProductViewModel AddProduct { get; set; }
+        public AddAlumnoViewModel AddAlumno { get; set; }
         public ICommand AddProductCommand { get { return new RelayCommand(this.GoAddProduct); } }
+        public ICommand AddAlumnoCommand { get { return new RelayCommand(this.GoAddAlumno); } }
+
+        private async void GoAddAlumno()
+        {
+            this.AddAlumno = new AddAlumnoViewModel();
+            await App.Navigator.PushAsync(new AddAlumnoPage());
+        }
 
         private async void GoAddProduct()
         {
@@ -50,6 +59,31 @@ namespace Tesoreria.UIForms.ViewModels
         {
             var menus = new List<Menu>
         {
+            
+            new Menu
+            {
+                Icon = "ic_payment",
+                PageName = "PagosPage",
+                Title = "Mis pagos"
+            },
+            new Menu
+            {
+                Icon = "ic_queue",
+                PageName = "NewPagosPage",
+                Title = "Nuevo Pago"
+            },
+            new Menu
+            {
+                Icon = "ic_supervised_user_circle",
+                PageName = "AlumnosPage",
+                Title = "Alumnos"
+            },
+            new Menu
+            {
+                Icon = "ic_person",
+                PageName = "DatosPage",
+                Title = "Mis Datos"
+            },
             new Menu
             {
                 Icon = "ic_info",
@@ -63,15 +97,16 @@ namespace Tesoreria.UIForms.ViewModels
             {
                 Icon = "ic_phonelink_setup",
                 PageName = "SetupPage",
-                Title = "Setup"
+                Title = "Cofiguracion"
             },
 
             new Menu
             {
                 Icon = "ic_exit_to_app",
                 PageName = "LoginPage",
-                Title = "Close session"
+                Title = "Cerrar session"
             }
+
         };
 
             this.Menus = new ObservableCollection<MenuItemViewModel>(

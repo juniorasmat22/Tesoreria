@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Tesoreria.UIForms.Views.AlumnosPage"
+              BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Lista de Alumnos">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="ic_action_add_circle"
+            Command="{Binding AddAlumnoCommand}">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Alumnos}"
+            Padding="10">
+            <ListView
+                IsRefreshing="{Binding Cargando}"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Alumnos}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+
+                                </Grid.ColumnDefinitions>
+                                <StackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding AluCodigo}"
+                                        TextColor="Black">
+                                    </Label>
+                                    <Label
+                                        Text="{Binding AluNombre}"
+                                        TextColor="Navy">
+                                    </Label>
+                                    <Label
+                                        Text="{Binding AluApellido}"
+                                        TextColor="Navy">
+                                    </Label>
+                                    <Label
+                                        Text="{Binding AluTelefono}"
+                                        TextColor="Navy">
+                                    </Label>
+                                    <!--<Label
+                                        Text="{Binding Descripcion}"
+                                        TextColor="Black">
+                                    </Label>-->
+                                </StackLayout>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

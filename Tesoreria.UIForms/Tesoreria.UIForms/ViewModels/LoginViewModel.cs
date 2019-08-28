@@ -1,20 +1,39 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System;
 using System.Windows.Input;
+using Tesoreria.Common.Models;
+using Tesoreria.Common.Services;
 using Tesoreria.UIForms.Views;
 using Xamarin.Forms;
 
 namespace Tesoreria.UIForms.ViewModels
 {
-    public class LoginViewModel
+    public class LoginViewModel: BaseViewModel
     {
+        private bool isRunning;
+        private bool isEnabled;
+        private readonly ApiServices apiService;
         public String email { get;  set; }
         public String password { get; set; }
+
+        public bool IsRunning
+        {
+            get => this.isRunning;
+            set => this.SetValue(ref this.isRunning, value);
+        }
+
+        public bool IsEnabled
+        {
+            get => this.isEnabled;
+            set => this.SetValue(ref this.isEnabled, value);
+        }
+
         public ICommand LoginCommand => new RelayCommand(Login);
         public LoginViewModel()
         {
-            this.email = "j.asmat@outlook.com";
-            this.password = "123";
+          
+            this.apiService = new ApiServices();
+            this.IsEnabled = true;
         }
         private async void Login()
         {
@@ -34,22 +53,35 @@ namespace Tesoreria.UIForms.ViewModels
                     "aceptar");
                 return;
             }
-            if (!this.email.Equals("j.asmat@outlook.com")|| !this.password.Equals("123"))
+          
+            this.IsRunning = true;
+            this.IsEnabled = false;
+            var usuario = new Usuario
             {
+                UsuUsuario = this.email,
+                UsuPassword=this.password
+            };
+            var url = "https://secret-woodland-25862.herokuapp.com";
+            var response = await this.apiService.PostAsync(
+                url,
+                "login.php",
+                usuario
+                );
+            if (!response.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Usario o password incorrecto",
-                    "aceptar");
+                   "Error",
+                   "Usario o password incorrecto",
+                   "aceptar");
                 return;
             }
-            //await Application.Current.MainPage.DisplayAlert(
-            //        "ok",
-            //        "correcto",
-            //        "aceptar");
+            
             var mainViewModel = MainViewModel.obtenerInstancia();
             mainViewModel.UserEmail = this.email;
             mainViewModel.UserPassword = this.password;
-            MainViewModel.obtenerInstancia().Products = new ProductsViewModel();
+            MainViewModel.obtenerInstancia().Alumnos = new AlumnosViewModel();
             Application.Current.MainPage= new MasterPage();
 
         }

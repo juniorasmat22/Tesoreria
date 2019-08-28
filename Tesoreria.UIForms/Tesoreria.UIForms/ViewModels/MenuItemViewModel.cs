@@ -26,7 +26,18 @@ namespace Tesoreria.UIForms.ViewModels
                 case "SetupPage":
                     await App.Navigator.PushAsync(new SetupPage());
                     break;
-                
+                case "PagosPage":
+                    //await App.Navigator.PushAsync(new SetupPage());
+                    break;
+                case "NewPagosPage":
+                    //await App.Navigator.PushAsync(new SetupPage());
+                    break;
+                case "AlumnosPage":
+                    //await App.Navigator.PushAsync(new SetupPage());
+                    break;
+                case "DatosPage":
+                    //await App.Navigator.PushAsync(new SetupPage());
+                    break;
                 default:
                     MainViewModel.obtenerInstancia().Login = new LoginViewModel();
                     Application.Current.MainPage = new NavigationPage(new LoginPage());

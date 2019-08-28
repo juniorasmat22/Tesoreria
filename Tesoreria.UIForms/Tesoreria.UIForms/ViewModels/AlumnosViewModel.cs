@@ -1,21 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using Tesoreria.Common.Models;
 using Tesoreria.Common.Services;
 using Xamarin.Forms;
 
 namespace Tesoreria.UIForms.ViewModels
 {
-    public class ProductsViewModel : BaseViewModel
+    public class AlumnosViewModel: BaseViewModel
     {
         private ApiServices apiServices;
-        private ObservableCollection<Product> products;
+        private ObservableCollection<Alumno> alumnos;
         private bool cargando;
-        public ObservableCollection<Product> Products
+        public ObservableCollection<Alumno> Alumnos
         {
-            get { return this.products; }
-            set { this.SetValue(ref this.products, value); }
+            get { return this.alumnos; }
+            set { this.SetValue(ref this.alumnos, value); }
         }//lista de productoa para el list view
 
         public bool Cargando
@@ -23,20 +25,18 @@ namespace Tesoreria.UIForms.ViewModels
             get { return this.cargando; }
             set { this.SetValue(ref this.cargando, value); }
         }//lista de productoa para el list view
-
-        public ProductsViewModel()
+        public AlumnosViewModel()
         {
             this.apiServices = new ApiServices();
-            this.CargarProductos();
-            
+            this.CargarAlumnos();
         }
 
-        private async void CargarProductos()
+        private async void CargarAlumnos()
         {
-            this.Cargando=true;
-            var response = await this.apiServices.GetListAsync<Product>(
+            this.Cargando = true;
+            var response = await this.apiServices.GetListAsync<Alumno>(
                 "https://secret-woodland-25862.herokuapp.com",
-                "listarProductos.php");
+                "listarAlumnos.php");
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -46,9 +46,8 @@ namespace Tesoreria.UIForms.ViewModels
                 return;
             }
             this.Cargando = false;
-            var MisProductos = (List<Product>)response.Resultado;
-            this.Products = new ObservableCollection<Product>(MisProductos.OrderBy(p=>p.Descripcion));
-            
+            var MisAlumnos = (List<Alumno>)response.Resultado;
+            this.Alumnos = new ObservableCollection<Alumno>(MisAlumnos.OrderBy(p => p.AluNombre));
         }
     }
 }

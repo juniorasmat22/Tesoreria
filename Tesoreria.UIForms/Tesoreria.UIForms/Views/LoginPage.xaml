@@ -36,12 +36,17 @@
                     IsPassword="True">
 
                 </Entry>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
                 <Button
-                     BackgroundColor="Navy"
+                     BackgroundColor="Aquamarine"
                         BorderRadius="23"
                      HeightRequest="46"
                         HorizontalOptions="FillAndExpand"
                     Command="{Binding LoginCommand}"
+                     IsEnabled="{Binding IsEnabled}"
                     Text="Ingresar"
                     >
                 </Button>
