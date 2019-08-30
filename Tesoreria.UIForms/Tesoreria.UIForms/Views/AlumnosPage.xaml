@@ -29,9 +29,15 @@
                                     <TapGestureRecognizer Command="{Binding SelectAlumnoCommand}"/>
                                 </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
+                                <Image
+                                    Grid.Column="0"
+                                    Source="ic_person"
+                                    WidthRequest="100">
+                                </Image>
                                 <StackLayout
                                     Grid.Column="1"
                                     VerticalOptions="Center">
@@ -57,12 +63,14 @@
                                         Text="{Binding Descripcion}"
                                         TextColor="Black">
                                     </Label>-->
-                                    <Image
-                                    Grid.Column="2"
-                                    Source="ic_cached">
-                                    </Image>
+                                    
                                 </StackLayout>
+                                <Image
+                                    Grid.Column="2"
+                                    Source="ic_cached"
+                                        >
 
+                                </Image>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
