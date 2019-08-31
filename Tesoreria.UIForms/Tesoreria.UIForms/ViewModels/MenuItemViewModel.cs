@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Tesoreria.Common.Config;
 using Tesoreria.Common.Models;
 using Tesoreria.UIForms.Views;
 using Xamarin.Forms;
@@ -39,6 +40,9 @@ namespace Tesoreria.UIForms.ViewModels
                     //await App.Navigator.PushAsync(new SetupPage());
                     break;
                 default:
+                    Settings.IsRemember = false;
+                    Settings.UserEmail = string.Empty;
+                    Settings.UserPassword = string.Empty;
                     MainViewModel.obtenerInstancia().Login = new LoginViewModel();
                     Application.Current.MainPage = new NavigationPage(new LoginPage());
                     break;

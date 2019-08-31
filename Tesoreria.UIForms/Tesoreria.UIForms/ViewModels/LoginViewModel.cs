@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System;
 using System.Windows.Input;
+using Tesoreria.Common.Config;
 using Tesoreria.Common.Models;
 using Tesoreria.Common.Services;
 using Tesoreria.UIForms.Views;
@@ -12,6 +13,7 @@ namespace Tesoreria.UIForms.ViewModels
     {
         private bool isRunning;
         private bool isEnabled;
+        public bool isRemember { get; set; }
         private readonly ApiServices apiService;
         public String email { get;  set; }
         public String password { get; set; }
@@ -33,7 +35,9 @@ namespace Tesoreria.UIForms.ViewModels
         {
           
             this.apiService = new ApiServices();
+            this.isRemember = true;
             this.IsEnabled = true;
+           
         }
         private async void Login()
         {
@@ -82,6 +86,11 @@ namespace Tesoreria.UIForms.ViewModels
             mainViewModel.UserEmail = this.email;
             mainViewModel.UserPassword = this.password;
             MainViewModel.obtenerInstancia().Alumnos = new AlumnosViewModel();
+            Settings.IsRemember = this.isRemember;
+            Settings.UserEmail = this.email;
+            Settings.UserPassword = this.password;
+
+
             Application.Current.MainPage= new MasterPage();
 
         }

@@ -36,6 +36,18 @@
                     IsPassword="True">
 
                 </Entry>
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal">
+                    <Label
+                        Text="Recordar Cuenta"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Switch
+                        IsToggled="{Binding isRemember}">
+                        
+                    </Switch>
+                </StackLayout>
                 <ActivityIndicator
                     IsRunning="{Binding IsRunning}"
                     VerticalOptions="CenterAndExpand">

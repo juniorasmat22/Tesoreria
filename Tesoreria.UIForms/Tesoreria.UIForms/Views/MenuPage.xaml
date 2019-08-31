@@ -18,7 +18,7 @@
             <Label
                 FontAttributes="Bold"
                 FontSize="Large"
-                Text="{Binding User.FullName, StringFormat='Welcome: {0}'}"
+                Text="{Binding UserEmail, StringFormat='Welcome: {0}'}"
                 TextColor="Black">
             </Label>
 

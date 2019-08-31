@@ -1,4 +1,5 @@
 ﻿using System;
+using Tesoreria.Common.Config;
 using Tesoreria.UIForms.ViewModels;
 using Tesoreria.UIForms.Views;
 using Xamarin.Forms;
@@ -14,6 +15,17 @@ namespace Tesoreria.UIForms
         public App()
         {
             InitializeComponent();
+            
+            if (Settings.IsRemember)
+            {
+                var mainViewModel = MainViewModel.obtenerInstancia();
+                mainViewModel.UserEmail = Settings.UserEmail;
+                mainViewModel.UserPassword = Settings.UserPassword;
+                mainViewModel.Alumnos = new AlumnosViewModel();
+                this.MainPage = new MasterPage();
+                return;
+
+            }
             MainViewModel.obtenerInstancia().Login = new LoginViewModel();
             this.MainPage = new NavigationPage(new LoginPage());
         }
