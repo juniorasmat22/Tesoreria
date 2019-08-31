@@ -136,7 +136,7 @@ namespace Tesoreria.UIForms.ViewModels
             var url = "https://secret-woodland-25862.herokuapp.com";
             var response = await this.apiService.DeleteAsync(
                 url,
-                "eliminarAlumno.php",
+                "deleteAlumno.php",
                 this.Alumno.AluId
                 );
             this.IsRunning = false;

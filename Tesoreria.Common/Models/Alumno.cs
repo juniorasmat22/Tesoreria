@@ -34,7 +34,7 @@ namespace Tesoreria.Common.Models
 
         public override string ToString()
         {
-            return $"{this.AluCodigo}{this.AluNombre}{this.AluApellido}{this.AluTelefono}";
+            return $"{this.AluCodigo}{this.AluNombre}{this.AluApellido}{this.AluTelefono}{this.EscIdEscuela}";
         }
     }
 }

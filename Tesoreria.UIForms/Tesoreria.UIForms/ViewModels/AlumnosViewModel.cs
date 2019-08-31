@@ -62,7 +62,9 @@ namespace Tesoreria.UIForms.ViewModels
                     AluApellido = p.AluApellido,
                     AluDireccion = p.AluDireccion,
                     AluTelefono = p.AluTelefono,
-                    AluCorreo = p.AluCorreo
+                    AluCorreo = p.AluCorreo,
+                    EscIdEscuela=p.EscIdEscuela
+
                 })
             .OrderBy(p => p.AluNombre)
             .ToList());

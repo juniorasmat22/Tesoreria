@@ -59,6 +59,10 @@
                                         Text="{Binding AluTelefono}"
                                         TextColor="Navy">
                                     </Label>
+                                    <Label
+                                        Text="{Binding EscIdEscuela}"
+                                        TextColor="Navy">
+                                    </Label>
                                     <!--<Label
                                         Text="{Binding Descripcion}"
                                         TextColor="Black">

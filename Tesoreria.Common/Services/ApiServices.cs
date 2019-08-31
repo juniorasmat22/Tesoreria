@@ -150,14 +150,21 @@ namespace Tesoreria.Common.Services
         {
             try
             {
+                var ent = new Alumno
+                {
+                   AluId=id
+                };
+
+                var request = JsonConvert.SerializeObject(ent);
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
                 var client = new HttpClient
                 {
                     BaseAddress = new Uri(urlBase)
                 };
 
                 
-                var url = $"{controller}/{id}";
-                var response = await client.DeleteAsync(url);
+                var url = $"{controller}";
+                var response = await client.PostAsync(url, content);
                 var answer = await response.Content.ReadAsStringAsync();
                 if (!response.IsSuccessStatusCode)
                 {
