@@ -37,7 +37,8 @@ namespace Tesoreria.UIForms.ViewModels
                     //await App.Navigator.PushAsync(new SetupPage());
                     break;
                 case "DatosPage":
-                    //await App.Navigator.PushAsync(new SetupPage());
+                    MainViewModel.obtenerInstancia().DatosAlumno = new DatosAlumnoViewModel();
+                    await App.Navigator.PushAsync(new DatosAlumnoPage());
                     break;
                 default:
                     Settings.IsRemember = false;

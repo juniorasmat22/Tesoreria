@@ -21,6 +21,7 @@ namespace Tesoreria.UIForms
                 var mainViewModel = MainViewModel.obtenerInstancia();
                 mainViewModel.UserEmail = Settings.UserEmail;
                 mainViewModel.UserPassword = Settings.UserPassword;
+                mainViewModel.UserId = Settings.User;
                 mainViewModel.Alumnos = new AlumnosViewModel();
                 this.MainPage = new MasterPage();
                 return;

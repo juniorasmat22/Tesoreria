@@ -17,7 +17,6 @@ namespace Tesoreria.UIForms.ViewModels
         private readonly ApiServices apiService;
         public String email { get;  set; }
         public String password { get; set; }
-
         public bool IsRunning
         {
             get => this.isRunning;
@@ -57,13 +56,13 @@ namespace Tesoreria.UIForms.ViewModels
                     "aceptar");
                 return;
             }
-          
+
             this.IsRunning = true;
             this.IsEnabled = false;
             var usuario = new Usuario
             {
                 UsuUsuario = this.email,
-                UsuPassword=this.password
+                UsuPassword = this.password
             };
             var url = "https://secret-woodland-25862.herokuapp.com";
             var response = await this.apiService.PostAsync(
@@ -81,16 +80,17 @@ namespace Tesoreria.UIForms.ViewModels
                    "aceptar");
                 return;
             }
-            
+            usuario = (Usuario)response.Resultado;
             var mainViewModel = MainViewModel.obtenerInstancia();
             mainViewModel.UserEmail = this.email;
             mainViewModel.UserPassword = this.password;
+            mainViewModel.UserId = ""+usuario.AluIdAlumno;
             MainViewModel.obtenerInstancia().Alumnos = new AlumnosViewModel();
             Settings.IsRemember = this.isRemember;
             Settings.UserEmail = this.email;
             Settings.UserPassword = this.password;
-
-
+            Settings.User=""+usuario.AluIdAlumno;
+            
             Application.Current.MainPage= new MasterPage();
 
         }

@@ -18,10 +18,15 @@
             <Label
                 FontAttributes="Bold"
                 FontSize="Large"
-                Text="{Binding UserEmail, StringFormat='Welcome: {0}'}"
+                Text="{Binding UserEmail, StringFormat='Bienvenido: {0}'}"
                 TextColor="Black">
             </Label>
-
+            <Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="{Binding UserId, StringFormat='Id: {0}'}"
+                TextColor="Black">
+            </Label>
             <ListView
                 BackgroundColor="Transparent"
                 ItemsSource="{Binding Menus}"

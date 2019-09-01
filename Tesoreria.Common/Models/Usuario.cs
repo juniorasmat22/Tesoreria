@@ -20,6 +20,6 @@ namespace Tesoreria.Common.Models
         public DateTimeOffset UsuFecha { get; set; }
 
         [JsonProperty("alu_id_alumno")]
-        public long AluIdAlumno { get; set; }
+        public int AluIdAlumno { get; set; }
     }
 }

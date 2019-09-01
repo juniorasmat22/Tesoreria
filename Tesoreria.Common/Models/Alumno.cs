@@ -7,6 +7,7 @@ namespace Tesoreria.Common.Models
 {
     public class Alumno
     {
+        
         [JsonProperty("alu_id")]
         public int AluId { get; set; }
 
@@ -31,6 +32,12 @@ namespace Tesoreria.Common.Models
 
         [JsonProperty("esc_id_escuela")]
         public int EscIdEscuela { get; set; }
+
+        [JsonProperty("esc_nombre")]
+        public string EscNombre { get; set; }
+
+        [JsonProperty("fac_nombre")]
+        public string FacNombre { get; set; }
 
         public override string ToString()
         {

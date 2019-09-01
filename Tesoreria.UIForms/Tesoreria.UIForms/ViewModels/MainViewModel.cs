@@ -18,9 +18,10 @@ namespace Tesoreria.UIForms.ViewModels
         public LoginViewModel Login { get; set; }
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
         public string UserEmail { get; set; }
-
         public string UserPassword { get; set; }
+        public string UserId { get; set; }
         public AlumnosViewModel Alumnos { get; set; }
+        public DatosAlumnoViewModel DatosAlumno { get; set; }
         public ProductsViewModel Products { get; set; }
         public AddProductViewModel AddProduct { get; set; }
         public AddAlumnoViewModel AddAlumno { get; set; }

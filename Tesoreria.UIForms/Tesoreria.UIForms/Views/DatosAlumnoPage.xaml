@@ -4,12 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Tesoreria.UIForms.Views.AddAlumnoPage"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Add Alumno">
+             x:Class="Tesoreria.UIForms.Views.DatosAlumnoPage"
+              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Mis Datos">
     <ContentPage.Content>
         <ScrollView
-            BindingContext="{Binding AddAlumno}">
+            BindingContext="{Binding DatosAlumno}">
             <StackLayout
                 Padding="10">
 
@@ -24,89 +24,92 @@
                         Text="Código"
                         VerticalOptions="Center">
                     </Label>
-                    <Entry
+                    <Label
                         Grid.Column="1"
                         Grid.Row="0"
-                        Keyboard="Numeric"
-                        Placeholder="Ingrese Codigo del Alumno.."
-                        Text="{Binding Codigo}">
-                    </Entry>
+                        VerticalOptions="Center"
+                        Text="{Binding MiAlumno.AluCodigo}">
+                    </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="1"
                         Text="Nombres"
                         VerticalOptions="Center">
                     </Label>
-                    <Entry
+                    <Label
                         Grid.Column="1"
                         Grid.Row="1"
-                        Placeholder="Ingrese sus Nombres"
-                        Text="{Binding Nombre}">
-                    </Entry>
+                        VerticalOptions="Center"
+                        Text="{Binding MiAlumno.AluNombre}">
+                    </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="2"
                         Text="Apellidos"
                         VerticalOptions="Center">
                     </Label>
-                    <Entry
+                    <Label
                         Grid.Column="1"
                         Grid.Row="2"
-                        Placeholder="Ingrese su Apellido..."
-                        Text="{Binding Apellido}">
-                    </Entry>
+                        Text="{Binding MiAlumno.AluApellido}">
+                    </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="3"
                         Text="Direccion"
                         VerticalOptions="Center">
                     </Label>
-                    <Entry
+                    <Label
                         Grid.Column="1"
                         Grid.Row="3"
-                        Placeholder="Ingrese su Dirección ..."
-                        Text="{Binding Direccion}">
-                    </Entry>
+                        Text="{Binding MiAlumno.AluDireccion}">
+                    </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="4"
                         Text="Teléfono"
                         VerticalOptions="Center">
                     </Label>
-                    <Entry
+                    <Label
                         Grid.Column="1"
                         Grid.Row="4"
-                        Keyboard="Telephone"
-                        Placeholder="Ingrese su Teléfono ..."
-                        Text="{Binding Telefono}">
-                    </Entry>
+                        Text="{Binding MiAlumno.AluTelefono}">
+                    </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="5"
                         Text="Correo"
                         VerticalOptions="Center">
                     </Label>
-                    <Entry
+                    <Label
                         Grid.Column="1"
                         Grid.Row="5"
-                        Keyboard="Email"
-                        Placeholder="Ingrese su Correo ..."
-                        Text="{Binding Correo}">
-                    </Entry>
+                        Text="{Binding MiAlumno.AluCorreo}">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        Text="Escuela"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="6"
+                        Text="{Binding MiAlumno.EscNombre}">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="7"
+                        Text="Facultad"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="7"
+                        Text="{Binding MiAlumno.FacNombre}">
+                    </Label>
                 </Grid>
-                <ActivityIndicator
-                    IsRunning="{Binding IsRunning}"
-                    VerticalOptions="CenterAndExpand">
-                </ActivityIndicator>
-                <Button
-                    BackgroundColor="Navy"
-                    BorderRadius="23"
-                    Command="{Binding SaveCommand}"
-                    HeightRequest="46"
-                    IsEnabled="{Binding IsEnabled}"
-                    Text="Guardar"
-                    TextColor="White">
-                </Button>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
