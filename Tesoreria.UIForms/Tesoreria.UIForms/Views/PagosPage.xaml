@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Tesoreria.UIForms.Views.PagosPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Mis Pagos">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="ic_action_add_circle"
+           >
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout 
+            Padding="10">
+            <ListView 
+                HasUnevenRows="True"
+                x:Name="Pagos">
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Recibo N°001</x:String>
+                        <x:String>Recibo N°008</x:String>
+                        <x:String>Recibo N°0015</x:String>
+                        <x:String>Recibo N°0085</x:String>
+                        <x:String>Recibo N°0047</x:String>
+                        <x:String>Recibo N°0145</x:String>
+                        <x:String>Recibo N°0478</x:String>
+                        <x:String>Recibo N°0547</x:String>
+                        <x:String>Recibo N°0645</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

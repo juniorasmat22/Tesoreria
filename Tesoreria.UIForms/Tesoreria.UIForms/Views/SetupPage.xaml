@@ -5,12 +5,59 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Tesoreria.UIForms.Views.SetupPage"
-             Title="Setup">
+             Title="Cambiar Contraseña">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Setup!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout
+                Padding="20">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="Contraseña Actual"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="0"
+                        Grid.Row="1">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Text="Nueva Contraseña"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="0"
+                        Grid.Row="3">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        Text="Repita la nueva Contraseña "
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="0"
+                        Grid.Row="5">
+                    </Entry>
+                </Grid>
+                
+                <Button
+                    Margin="10"
+                    BackgroundColor="Navy"
+                    BorderRadius="23"
+                    Command="{Binding SaveCommand}"
+                    HeightRequest="46"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="Guardar Cambios"
+                    TextColor="White">
+                </Button>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

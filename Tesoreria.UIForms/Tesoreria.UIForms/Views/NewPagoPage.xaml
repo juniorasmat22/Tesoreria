@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Tesoreria.UIForms.Views.NewPagoPage"
+              BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Nuevo Pago">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Picker x:Name="picker"
+                Title="Selecion el Concepto a Pagar"
+                 
+                TitleColor="Red">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Matrícula</x:String>
+                            <x:String>Centro de Idiomas-Cidunt</x:String>
+                            <x:String>Derecho de Trámite</x:String>
+                            <x:String>Regularización</x:String>
+
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Text="Monto"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="S/.">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Text="Fecha"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Text="06/09/2019">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        Text="Escuela"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Text="Ingeniería de sistemas">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        Text="Facultad"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        Text="Ingeniería">
+                    </Label>
+                </Grid>
+
+                <Button
+                    Margin="20"
+                    BackgroundColor="Navy"
+                    BorderRadius="23"
+                    Command="{Binding SaveCommand}"
+                    HeightRequest="46"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="Pagar"
+                    TextColor="White">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

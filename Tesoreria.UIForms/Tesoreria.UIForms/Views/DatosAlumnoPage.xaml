@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Tesoreria.UIForms.Views.DatosAlumnoPage"
-              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Mis Datos">
     <ContentPage.Content>
         <ScrollView

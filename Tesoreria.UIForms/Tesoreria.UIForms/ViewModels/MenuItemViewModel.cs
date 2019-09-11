@@ -28,10 +28,10 @@ namespace Tesoreria.UIForms.ViewModels
                     await App.Navigator.PushAsync(new SetupPage());
                     break;
                 case "PagosPage":
-                    //await App.Navigator.PushAsync(new SetupPage());
+                    await App.Navigator.PushAsync(new PagosPage());
                     break;
                 case "NewPagosPage":
-                    //await App.Navigator.PushAsync(new SetupPage());
+                    await App.Navigator.PushAsync(new NewPagoPage());
                     break;
                 case "AlumnosPage":
                     //await App.Navigator.PushAsync(new SetupPage());
